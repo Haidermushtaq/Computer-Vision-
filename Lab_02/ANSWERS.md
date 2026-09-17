@@ -2,10 +2,6 @@
 
 Haider Mushtaq (FA23-BAI-044)
 
-Question 1 is answered from Lab 01. Questions 2 to 6 depend on this lab's results. Fill them from `results/comparison_table.csv`, `results/delta_vs_baseline.csv`, `results/class_sensitivity.csv` and `results/summary.txt`. Questions 7 to 10 are conceptual and answered below.
-
----
-
 **1. Which three pretrained models performed best in Lab Activity 1?**
 
 From Lab 01 Table 1, ranked by test accuracy on the ISIC 9-class test set:
