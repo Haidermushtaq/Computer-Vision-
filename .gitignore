@@ -1,6 +1,0 @@
-*.pt
-*.pth
-__pycache__/
-.ipynb_checkpoints/
-kaggle.json
-*.zip
