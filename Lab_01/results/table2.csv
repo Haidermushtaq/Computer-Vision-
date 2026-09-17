@@ -1,0 +1,8 @@
+Feature Extractor,Classifier,Accuracy (%),Precision (%),Recall (%),F1-Score (%),AUC (%)
+Deep Features (ResNet50),Logistic Regression,60.17,65.08,58.33,56.52,91.38
+Deep Features (ResNet50),Decision Tree,53.39,60.87,52.78,50.03,73.38
+Deep Features (ResNet50),Random Forest,55.93,63.28,54.86,51.23,92.44
+Deep Features (ResNet50),K-Nearest Neighbors (KNN),59.32,56.34,57.64,53.98,88.07
+Deep Features (ResNet50),Linear SVM,61.86,65.48,59.72,57.66,91.85
+Deep Features (ResNet50),RBF-SVM,59.32,62.74,57.64,55.3,93.04
+Deep Features (ResNet50),XGBoost,56.78,61.32,55.56,53.13,89.48

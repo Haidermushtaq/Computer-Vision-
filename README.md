@@ -1,70 +1,77 @@
 # Computer Vision
 
-Coursework and portfolio projects in computer vision.
+Lab work for the Computer Vision course, BS Artificial Intelligence.
 
 **Haider Mushtaq** (FA23-BAI-044)
-BS Artificial Intelligence, COMSATS University Islamabad, Wah Campus
+COMSATS University Islamabad, Wah Campus
+Supervisor: Dr. Khalid
+
+Each lab lives in its own folder with the notebook, a README explaining how to run it, and a `results/` directory holding the tables and figures produced by that run.
 
 ---
 
-## Projects
+## Labs
 
-### 01. Skin Cancer Classification (ISIC, 9 Classes)
-
-A benchmarking study on automated skin lesion classification. The goal is to find out which pretrained CNN works best on a small, heavily imbalanced dermoscopy dataset, and whether classical machine learning models do better when they are given deep features instead of raw pixels.
-
-**Three experiments:**
-
-1. **Transfer learning comparison.** Eight ImageNet-pretrained CNNs fine-tuned on the dataset: AlexNet, VGG16, VGG19, ResNet18, ResNet50, ResNet101, DenseNet121, EfficientNet-B0.
-2. **Deep features plus classical classifiers.** The best CNN is stripped of its final layer and used as a feature extractor. Seven classical models are then trained on those features: Logistic Regression, Decision Tree, Random Forest, KNN, Linear SVM, RBF-SVM, XGBoost.
-3. **Computational efficiency.** Parameters, model size, FLOPs and single-image inference time for each architecture, so accuracy can be weighed against cost.
-
-**Notebook:** [`notebooks/Task_01_Skin_Cancer_ISIC.ipynb`](notebooks/Task_01_Skin_Cancer_ISIC.ipynb)
-**Methodology writeup:** [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
-**Dataset:** [Skin Cancer ISIC 9 Classes](https://www.kaggle.com/datasets/nodoubttome/skin-cancer9-classesisic)
+| Lab | Topic | Dataset | Status |
+|---|---|---|---|
+| [Lab 01](Lab_01/) | Transfer-learning benchmark, deep-feature classifiers, computational efficiency | ISIC 9-class | Complete |
+| [Lab 02](Lab_02/) | Effect of spatial filters on lesion classification | HAM10000 | In progress |
 
 ---
 
-## Repository Structure
+## Lab 01: Skin Cancer Classification (ISIC, 9 classes)
+
+Eight ImageNet-pretrained CNNs fine-tuned under identical settings, the best one used as a feature extractor for seven classical classifiers, and a cost/accuracy comparison across architectures.
+
+**Top three by test accuracy**
+
+| Model | Accuracy | F1 | AUC | Params |
+|---|---|---|---|---|
+| ResNet50 | 61.86% | 60.90% | 91.39% | 23.5M |
+| DenseNet121 | 59.32% | 60.09% | 90.83% | 7.0M |
+| ResNet101 | 58.47% | 57.22% | 92.24% | 42.5M |
+
+Full tables: [`Lab_01/results/`](Lab_01/results/). Methodology: [`Lab_01/METHODOLOGY.md`](Lab_01/METHODOLOGY.md).
+
+## Lab 02: Effect of Image Filtering on Skin-Lesion Classification (HAM10000)
+
+Takes the three models above and retrains each under six conditions: unfiltered baseline plus average, Gaussian, median, sharpening and Sobel filters. Same split, preprocessing and hyperparameters across all 18 runs. Reports accuracy, macro P/R/F1, balanced accuracy and AUC, with per-class sensitivity analysis.
+
+Notebook and run instructions: [`Lab_02/`](Lab_02/). Written answers: [`Lab_02/ANSWERS.md`](Lab_02/ANSWERS.md).
+
+---
+
+## Repository layout
 
 ```
-computer-vision/
-├── notebooks/
-│   └── Task_01_Skin_Cancer_ISIC.ipynb
-├── docs/
-│   └── METHODOLOGY.md
-├── results/
-│   ├── table1.csv
-│   ├── table2.csv
-│   ├── table3.csv
-│   └── confusion_matrix.png
+Computer-Vision-/
+├── README.md
 ├── requirements.txt
-└── README.md
+├── .gitignore
+├── Lab_01/
+│   ├── Task_01_Skin_Cancer_ISIC.ipynb
+│   ├── README.md
+│   ├── METHODOLOGY.md
+│   └── results/
+│       ├── table1.csv              # transfer learning comparison
+│       ├── table2.csv              # deep features + classifiers
+│       ├── table3.csv              # computational efficiency
+│       └── confusion_matrix.png
+└── Lab_02/
+    ├── Lab02_Filtering_HAM10000.ipynb
+    ├── README.md
+    ├── ANSWERS.md
+    └── results/                    # populated by the notebook
 ```
 
 ---
 
-## Stack
+## Environment
 
-PyTorch, torchvision, scikit-learn, XGBoost, thop, pandas, matplotlib, seaborn
+All notebooks run on Kaggle or Google Colab with a GPU. They detect the platform and locate the dataset automatically. On Colab, set a `KAGGLE_API_TOKEN` secret so the notebooks can download from Kaggle.
 
----
-
-## Running the Code
-
-The notebooks are written for Kaggle with a GPU accelerator.
-
-1. Import the notebook into Kaggle
-2. Add the dataset through **Add Input**
-3. Set **Accelerator** to GPU and turn **Internet** on
-4. Run all cells
-
-The dataset path is detected automatically, so nothing needs to be edited before running.
-
-For a local run:
-
-```bash
+```
 pip install -r requirements.txt
 ```
 
-Expect roughly 2 to 3 hours on a single P100 for the full eight-model training loop.
+Stack: PyTorch, torchvision, OpenCV, scikit-learn, XGBoost, thop, pandas, matplotlib, seaborn.

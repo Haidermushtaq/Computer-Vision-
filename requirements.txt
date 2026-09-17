@@ -1,0 +1,11 @@
+torch
+torchvision
+opencv-python
+scikit-learn
+xgboost
+thop
+pandas
+numpy
+matplotlib
+seaborn
+kagglehub
