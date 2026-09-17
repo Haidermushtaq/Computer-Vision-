@@ -1,0 +1,6 @@
+ResNet50: baseline Macro-F1 76.41. Best filter Gaussian (+1.49 pp), worst Sobel (-21.95 pp).
+DenseNet121: baseline Macro-F1 75.89. Best filter Sharpening (-1.02 pp), worst Sobel (-21.70 pp).
+ResNet101: baseline Macro-F1 76.29. Best filter Median (+1.32 pp), worst Sobel (-23.88 pp).
+Largest mean change: Sobel (-22.51 pp Macro-F1).
+Direction consistent across all three models: Average no, Gaussian no, Median no, Sharpening yes, Sobel yes
+Classes most sensitive to filtering: df, vasc, nv.

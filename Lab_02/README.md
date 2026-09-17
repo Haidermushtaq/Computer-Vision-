@@ -10,18 +10,16 @@ I tested five filters (average, Gaussian, median, sharpening, Sobel) against an 
 
 ```
 Lab_02/
-├── Lab02_Filtering_HAM10000.ipynb    the whole pipeline
+├── Lab02_Filtering_HAM10000.ipynb   the whole pipeline, with outputs
 ├── README.md
-├── ANSWERS.md                        my answers to the lab questions
-└── results/                          generated when the notebook runs
-    ├── comparison_table.csv          the 18-row table the lab asks for
-    ├── delta_vs_baseline.csv         how much each filter moved the numbers
-    ├── class_sensitivity.csv         which classes react most to filtering
+├── ANSWERS.md                       my answers to the lab questions
+└── results/
+    ├── comparison_table.csv         the 18-row table the lab asks for
+    ├── delta_vs_baseline.csv        how much each filter moved the numbers
+    ├── class_sensitivity.csv        which classes react most to filtering
     ├── class_distribution.csv
-    ├── reports/per_class.csv
-    ├── curves/                       train/val history for every run
-    ├── confusion/                    confusion matrix for every run
-    └── figures/                      all the plots
+    ├── summary.txt
+    └── figures/                     curves, confusion matrices, comparison plots
 ```
 
 ## Dataset
@@ -34,20 +32,20 @@ One thing I had to be careful about: HAM10000 has multiple photos of the same le
 
 ## How to run it
 
-I ran this on Google Colab with a T4. Kaggle is only used as the download source for the dataset.
+I ran this on Kaggle with a P100. It also works on Colab, see below.
 
-1. Runtime, Change runtime type, pick T4 GPU
-2. Click the key icon in the left sidebar and add a secret called `KAGGLE_API_TOKEN` with your Kaggle API token (Kaggle, Settings, API, Create New Token). Turn on notebook access for it
-3. Run `!pip install -q thop` once
+Kaggle:
+
+1. Import the notebook
+2. Add Input, search `skin-cancer-mnist-ham10000`
+3. Turn on GPU and Internet
 4. Run all
 
-The notebook reads the token from Colab secrets, pulls HAM10000 with `kagglehub`, and writes everything to `/content/lab02`. The token never touches the notebook file, so it's safe to commit.
+The dataset path is picked up automatically. Results go into `results.csv` after every single run, so if the session dies halfway you rerun and it skips whatever already finished.
 
-Results go into `results.csv` after every single run. If Colab disconnects halfway, reconnect and rerun. It skips whatever already finished. Do copy `results.csv` to Drive between sessions though, because `/content` is wiped when the runtime dies.
+Colab: T4 runtime, add a `KAGGLE_API_TOKEN` secret (key icon in the left sidebar), `!pip install -q thop`, Run all. The notebook reads the token from Secrets and downloads HAM10000 itself. Copy `results.csv` to Drive between sessions because `/content` gets wiped on disconnect.
 
-It also runs on Kaggle if you attach `skin-cancer-mnist-ham10000` as an input. The notebook checks for that first and skips the download.
-
-Budget about 3 to 4 hours on a T4 for all 18 runs. Free Colab may not give you that in one sitting, which is exactly why the checkpointing is there.
+All 18 runs took a bit over 3 hours.
 
 ## Setup I kept fixed
 
@@ -76,6 +74,30 @@ Filtering happens after the resize on purpose. A 5x5 kernel on a 600px image and
 | Sobel | 3x3 Sobel in x and y, gradient magnitude, scaled to 0 to 255 |
 
 Sobel gives a single grey channel. I copy it into three channels so the pretrained first conv layer still accepts it. Colour gets thrown away, and that's intentional. The Sobel condition is really asking "what happens when the model only gets edges."
+
+## What I found
+
+Full table in `results/comparison_table.csv`. Accuracy and Macro-F1 on the 381-image test set:
+
+| Model | No Filter | Average | Gaussian | Median | Sharpening | Sobel |
+|---|---|---|---|---|---|---|
+| ResNet50 | 75.33 / 76.41 | 75.59 / 76.71 | **76.90 / 77.90** | 71.92 / 72.78 | 74.54 / 75.44 | 55.12 / 54.46 |
+| DenseNet121 | **74.80 / 75.89** | 72.70 / 72.87 | 71.65 / 73.08 | 73.23 / 73.56 | 74.02 / 74.87 | 56.17 / 54.19 |
+| ResNet101 | 75.07 / 76.29 | 73.75 / 74.71 | 75.85 / 75.35 | **76.90 / 77.61** | 73.49 / 75.42 | 55.38 / 52.41 |
+
+Bold is the best condition for each model.
+
+The short version:
+
+- **Sobel wrecks everything.** Every model lost around 20 points of accuracy and 22 to 24 points of Macro-F1. Throwing away colour is a bad idea for dermoscopy. Vascular lesions, which are basically diagnosed by colour, dropped 35 points of F1.
+- **Smoothing and sharpening are small effects, and the sign depends on the model.** Gaussian helped ResNet50 by 1.5 points, hurt DenseNet121 by 2.8. Median helped ResNet101 by 1.3, hurt ResNet50 by 3.6. Sharpening was slightly negative everywhere.
+- **DenseNet121 never improved.** Baseline was its best run. My guess is that dense connectivity reuses early features everywhere, so texture lost at the input stays lost.
+- **Excluding Sobel, filtering cost 1.17 points of Macro-F1 on average.** Twelve of the fifteen filtered runs were worse than their baseline. Three were better, and there's no way to know which pairing works without running it.
+- **bkl was the one class that liked smoothing.** It gained 3 to 6 points under every non-Sobel filter. Those images carry a lot of surface scale and hair, so blur acts as denoising there. Melanoma lost 2 to 3.5 points under every smoothing filter, which is the class you'd least want to lose recall on.
+
+The full reasoning is in [ANSWERS.md](ANSWERS.md).
+
+![Filter comparison](results/figures/filter_comparison_bars.png)
 
 ## Things I'd change with more time
 

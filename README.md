@@ -4,16 +4,18 @@ Lab work for the Computer Vision course, BS Artificial Intelligence.
 
 **Haider Mushtaq** (FA23-BAI-044)
 COMSATS University Islamabad, Wah Campus
-**Supervisor**: Dr. Jammal Hussain Shah
+Supervisor: Dr. Khalid
 
+Each lab lives in its own folder with the notebook, a README explaining how to run it, and a `results/` directory holding the tables and figures produced by that run.
 
+---
 
 ## Labs
 
 | Lab | Topic | Dataset | Status |
 |---|---|---|---|
 | [Lab 01](Lab_01/) | Transfer-learning benchmark, deep-feature classifiers, computational efficiency | ISIC 9-class | Complete |
-| [Lab 02](Lab_02/) | Effect of spatial filters on lesion classification | HAM10000 | In progress |
+| [Lab 02](Lab_02/) | Effect of spatial filters on lesion classification | HAM10000 | Complete |
 
 ---
 
@@ -33,9 +35,17 @@ Full tables: [`Lab_01/results/`](Lab_01/results/). Methodology: [`Lab_01/METHODO
 
 ## Lab 02: Effect of Image Filtering on Skin-Lesion Classification (HAM10000)
 
-Takes the three models above and retrains each under six conditions: unfiltered baseline plus average, Gaussian, median, sharpening and Sobel filters. Same split, preprocessing and hyperparameters across all 18 runs. Reports accuracy, macro P/R/F1, balanced accuracy and AUC, with per-class sensitivity analysis.
+Takes the three models above and retrains each under six conditions: unfiltered baseline plus average, Gaussian, median, sharpening and Sobel filters. Same lesion-grouped split, preprocessing and hyperparameters across all 18 runs.
 
-Notebook and run instructions: [`Lab_02/`](Lab_02/). Written answers: [`Lab_02/ANSWERS.md`](Lab_02/ANSWERS.md).
+**Headline result:** Sobel edge detection cost every model about 20 points of accuracy. The smoothing and sharpening filters moved Macro-F1 by less than 4 points in either direction, and which way depended on the model. The unfiltered baseline was the best or within 1.5 points of the best for all three. Filtering mostly hurt.
+
+| Model | Best condition | Acc | Macro-F1 |
+|---|---|---|---|
+| ResNet50 | Gaussian | 76.90% | 77.90% |
+| DenseNet121 | No filter | 74.80% | 75.89% |
+| ResNet101 | Median | 76.90% | 77.61% |
+
+Notebook, full 18-row table and figures: [`Lab_02/`](Lab_02/). Written answers: [`Lab_02/ANSWERS.md`](Lab_02/ANSWERS.md).
 
 ---
 
@@ -51,15 +61,19 @@ Computer-Vision-/
 │   ├── README.md
 │   ├── METHODOLOGY.md
 │   └── results/
-│       ├── table1.csv              # transfer learning comparison
-│       ├── table2.csv              # deep features + classifiers
-│       ├── table3.csv              # computational efficiency
+│       ├── table1.csv        # transfer learning comparison
+│       ├── table2.csv        # deep features + classifiers
+│       ├── table3.csv        # computational efficiency
 │       └── confusion_matrix.png
 └── Lab_02/
     ├── Lab02_Filtering_HAM10000.ipynb
     ├── README.md
     ├── ANSWERS.md
-    └── results/                    # populated by the notebook
+    └── results/
+        ├── comparison_table.csv    # 18 runs: acc, P/R, F1, macro-F1, bal. acc, AUC
+        ├── delta_vs_baseline.csv
+        ├── class_sensitivity.csv
+        └── figures/
 ```
 
 ---
