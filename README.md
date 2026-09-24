@@ -4,11 +4,9 @@ Lab work for the Computer Vision course, BS Artificial Intelligence.
 
 **Haider Mushtaq** (FA23-BAI-044)
 COMSATS University Islamabad, Wah Campus
-Supervisor: Dr. Khalid
+Supervisor: Dr. Jamal Hussain shah
 
-Each lab lives in its own folder with the notebook, a README explaining how to run it, and a `results/` directory holding the tables and figures produced by that run.
 
----
 
 ## Labs
 
