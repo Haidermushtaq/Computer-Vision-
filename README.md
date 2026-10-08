@@ -67,14 +67,12 @@ Computer-Vision-/
 │   └── results/
 ├── Lab_03/
 │   ├── Lab03_EdgeDetection_HAM10000.ipynb
-│   ├── Lab_03_Assignment.docx
 │   ├── README.md
 │   ├── REPORT.md
 │   ├── ANSWERS.md
 │   └── results/
 └── Lab_04/
     ├── skin_lesion_canny.ipynb
-    ├── Lab_04_Assignment.pdf
     ├── README.md
     ├── REPORT.md
     ├── ANSWERS.md

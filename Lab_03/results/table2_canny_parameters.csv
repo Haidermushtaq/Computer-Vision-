@@ -1,5 +1,5 @@
-Configuration,Low Threshold,High Threshold,Kernel Size,Edge Quality,Number of Detected Edges,Observation
-Canny-1,30,100,3x3,,,
-Canny-2,50,150,3x3,,,
-Canny-3,100,200,3x3,,,
-Canny-4,,,,,,
+Configuration,Low Threshold,High Threshold,Kernel Size,Edge Quality (%),Number of Detected Edges,Observation
+Canny-1,30,100,3x3,14.17,2775,Dense edge map with 5.5 percent of pixels marked
+Canny-2,50,150,3x3,26.04,807,Moderate edge density
+Canny-3,100,200,3x3,24.65,123,Sparse edge map may miss lesion detail
+Canny-4,50,150,5x5,33.16,343,Highest measured heuristic quality and selected configuration

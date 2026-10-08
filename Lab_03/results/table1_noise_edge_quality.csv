@@ -1,12 +1,12 @@
-Edge Detector,Input Image,Noise Type,Preprocessing,Edge Quality,Noise Sensitivity,Observations
-Sobel,Original,None,None,,,
-Sobel,Noisy,Gaussian,None,,,
-Sobel,Noisy,Salt & Pepper,None,,,
-Sobel,Noisy,Gaussian,Gaussian Filter,,,
-Sobel,Noisy,Salt & Pepper,Median Filter,,,
-Prewitt,Original,None,None,,,
-Laplacian,Original,None,None,,,
-LoG,Noisy,Gaussian,Gaussian Filter,,,
-Canny,Original,None,Built-in smoothing,,,
-Canny,Noisy,Gaussian,Gaussian Filter,,,
-Canny,Noisy,Salt & Pepper,Median Filter,,,
+Edge Detector,Input Image,Noise Type,Preprocessing,Edge Quality (%),Noise Sensitivity (%),Observations
+Sobel,Original,None,None,0.00,0.00,Clean reference map; quality score is heuristic
+Sobel,Noisy,Gaussian,None,0.00,64.74,High divergence from clean edge map
+Sobel,Noisy,Salt & Pepper,None,0.00,79.54,Highest measured noise sensitivity
+Sobel,Noisy,Gaussian,Gaussian Filter,0.00,53.05,Gaussian filtering reduced measured sensitivity
+Sobel,Noisy,Salt & Pepper,Median Filter,0.06,36.07,Median filtering reduced measured sensitivity
+Prewitt,Original,None,None,0.00,0.00,Clean reference map
+Laplacian,Original,None,None,0.02,0.00,Clean reference map
+LoG,Noisy,Gaussian,Gaussian Filter,0.00,62.18,High divergence from clean edge map
+Canny,Original,None,Built-in smoothing,14.17,0.00,Clean reference map
+Canny,Noisy,Gaussian,Gaussian Filter,16.11,73.24,Noisy map remained different from clean reference
+Canny,Noisy,Salt & Pepper,Median Filter,20.33,74.83,Noisy map remained different from clean reference

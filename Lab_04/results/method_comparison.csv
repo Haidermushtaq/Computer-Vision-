@@ -1,9 +1,9 @@
-Method,Noise Handling,Edge Quality,Boundary Detection,Overall Performance,Notes
-Original + Sobel,,,,,
-Original + Canny,,,,,
-Average + Sobel,,,,,
-Average + Canny,,,,,
-Gaussian + Sobel,,,,,
-Gaussian + Canny,,,,,
-Median + Sobel,,,,,
-Median + Canny,,,,,
+Method,Noise Handling,Edge Quality,Boundary Detection,Overall Performance
+Original + Sobel,Fair,Fair,Fair,Fair
+Original + Canny,Poor,Good,Fair,Poor
+Average + Sobel,Good,Poor,Good,Good
+Average + Canny,Poor,Poor,Poor,Poor
+Gaussian + Sobel,Good,Fair,Good,Good
+Gaussian + Canny,Poor,Poor,Poor,Poor
+Median + Sobel,Good,Good,Good,Good
+Median + Canny,Fair,Good,Poor,Fair

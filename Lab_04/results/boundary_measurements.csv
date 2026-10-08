@@ -1,6 +1,6 @@
 Image,Best Filter,Edge Method,Area (pixels),Perimeter (pixels),Selected Thresholds,Notes
-Image 1,,,,,,
-Image 2,,,,,,
-Image 3,,,,,,
-Image 4,,,,,,
-Image 5,,,,,,
+Image 1,"Gaussian (5x5, sigma=1.5)",Canny (100-200),0,0.0,100-200,ISIC_0025438.jpg; no valid contour; zero is a failure sentinel.
+Image 2,"Gaussian (5x5, sigma=1.5)",Canny (150-250),0,0.0,150-250,ISIC_0029881.jpg; no valid contour; zero is a failure sentinel.
+Image 3,"Gaussian (5x5, sigma=1.5)",Canny (50-100),0,0.0,50-100,ISIC_0026399.jpg; no valid contour; zero is a failure sentinel.
+Image 4,"Gaussian (5x5, sigma=1.5)",Canny (100-200),0,0.0,100-200,ISIC_0028847.jpg; no valid contour; zero is a failure sentinel.
+Image 5,"Gaussian (5x5, sigma=1.5)",Canny (50-100),8517,1154.1,50-100,ISIC_0027102.jpg; valid contour; threshold score 1894.
