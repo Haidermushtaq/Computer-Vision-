@@ -1,0 +1,6 @@
+Model / Classifier,Accuracy Raw (Lab 1),Accuracy Filtered (Lab 2),Accuracy Edge (Lab 3),Precision,Recall,F1-Score,Training Time (s),Inference Time (ms)
+SVM,,,,,,,,
+Random Forest,,,,,,,,
+KNN,,,,,,,,
+CNN Model 1,,,,,,,,
+CNN Model 2,,,,,,,,

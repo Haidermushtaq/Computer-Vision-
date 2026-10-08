@@ -1,0 +1,12 @@
+Edge Detector,Input Image,Noise Type,Preprocessing,Edge Quality,Noise Sensitivity,Observations
+Sobel,Original,None,None,,,
+Sobel,Noisy,Gaussian,None,,,
+Sobel,Noisy,Salt & Pepper,None,,,
+Sobel,Noisy,Gaussian,Gaussian Filter,,,
+Sobel,Noisy,Salt & Pepper,Median Filter,,,
+Prewitt,Original,None,None,,,
+Laplacian,Original,None,None,,,
+LoG,Noisy,Gaussian,Gaussian Filter,,,
+Canny,Original,None,Built-in smoothing,,,
+Canny,Noisy,Gaussian,Gaussian Filter,,,
+Canny,Noisy,Salt & Pepper,Median Filter,,,

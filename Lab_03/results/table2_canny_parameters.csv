@@ -1,0 +1,5 @@
+Configuration,Low Threshold,High Threshold,Kernel Size,Edge Quality,Number of Detected Edges,Observation
+Canny-1,30,100,3x3,,,
+Canny-2,50,150,3x3,,,
+Canny-3,100,200,3x3,,,
+Canny-4,,,,,,

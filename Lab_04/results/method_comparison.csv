@@ -1,0 +1,9 @@
+Method,Noise Handling,Edge Quality,Boundary Detection,Overall Performance,Notes
+Original + Sobel,,,,,
+Original + Canny,,,,,
+Average + Sobel,,,,,
+Average + Canny,,,,,
+Gaussian + Sobel,,,,,
+Gaussian + Canny,,,,,
+Median + Sobel,,,,,
+Median + Canny,,,,,
