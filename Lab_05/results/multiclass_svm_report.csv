@@ -1,0 +1,8 @@
+Class,Precision,Recall,F1,Support
+crazing,0.800,1.000,0.889,60
+inclusion,0.770,0.783,0.777,60
+patches,0.750,0.750,0.750,60
+pitted_surface,0.725,0.617,0.667,60
+rolled-in_scale,0.984,1.000,0.992,60
+scratches,0.865,0.750,0.804,60
+Macro average,0.816,0.817,0.813,360

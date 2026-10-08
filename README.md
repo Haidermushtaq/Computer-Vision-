@@ -16,6 +16,7 @@ Supervisor: Dr. Jamal Hussain shah
 | [Lab 02](Lab_02/) | Effect of spatial filters on lesion classification | HAM10000 | Complete |
 | [Lab 03](Lab_03/) | Edge detection, noise sensitivity, and classification | ISIC / HAM10000 | Complete |
 | [Lab 04](Lab_04/) | Skin-lesion boundary detection using Canny | Skin lesion images | Complete |
+| [Lab 05](Lab_05/) | HOG-based industrial defect detection and classification | NEU steel surface defects | In progress |
 
 ---
 
@@ -47,6 +48,12 @@ Takes the three models above and retrains each under six conditions: unfiltered 
 
 Notebook, full 18-row table and figures: [`Lab_02/`](Lab_02/). Written answers: [`Lab_02/ANSWERS.md`](Lab_02/ANSWERS.md).
 
+## Lab 05: HOG-Based Industrial Defect Detection
+
+Uses HOG features with an RBF-SVM and random forest for binary normal/defective classification and six-class steel defect recognition. In the saved run, the SVM achieved 76.80% binary accuracy and 81.67% six-class accuracy. Robustness and product-level inspection outputs are not saved yet.
+
+Notebook, results, and paper: [`Lab_05/`](Lab_05/).
+
 ---
 
 ## Repository layout
@@ -71,11 +78,17 @@ Computer-Vision-/
 │   ├── REPORT.md
 │   ├── ANSWERS.md
 │   └── results/
-└── Lab_04/
-    ├── skin_lesion_canny.ipynb
+├── Lab_04/
+│   ├── skin_lesion_canny.ipynb
+│   ├── README.md
+│   ├── REPORT.md
+│   ├── ANSWERS.md
+│   └── results/
+└── Lab_05/
+    ├── Lab05_HOG_Defect_Detection.ipynb
     ├── README.md
-    ├── REPORT.md
-    ├── ANSWERS.md
+    ├── PAPER.md
+    ├── requirements.txt
     └── results/
 ```
 
@@ -89,4 +102,4 @@ All notebooks run on Kaggle or Google Colab with a GPU. They detect the platform
 pip install -r requirements.txt
 ```
 
-Stack: PyTorch, torchvision, OpenCV, scikit-learn, XGBoost, thop, pandas, matplotlib, seaborn.
+Stack: PyTorch, torchvision, OpenCV, scikit-learn, scikit-image, XGBoost, thop, pandas, matplotlib, seaborn, joblib, kagglehub.

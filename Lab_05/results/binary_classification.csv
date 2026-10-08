@@ -1,0 +1,3 @@
+Model,Accuracy,Defective_Precision,Defective_Recall,Defective_F1,Validation_Crops,Normal_Crops,Defective_Crops
+SVM (RBF),0.7680,0.7961,0.6833,0.7354,763,403,360
+Random Forest,0.7077,0.8309,0.4778,0.6067,763,403,360
