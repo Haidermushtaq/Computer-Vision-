@@ -14,8 +14,8 @@ Supervisor: Dr. Jamal Hussain shah
 |---|---|---|---|
 | [Lab 01](Lab_01/) | Transfer-learning benchmark, deep-feature classifiers, computational efficiency | ISIC 9-class | Complete |
 | [Lab 02](Lab_02/) | Effect of spatial filters on lesion classification | HAM10000 | Complete |
-| [Lab 03](Lab_03/) | Edge detection, noise sensitivity, and classification | ISIC / HAM10000 | In progress |
-| [Lab 04](Lab_04/) | Skin-lesion boundary detection using Canny | Skin lesion images | In progress |
+| [Lab 03](Lab_03/) | Edge detection, noise sensitivity, and classification | ISIC / HAM10000 | Complete |
+| [Lab 04](Lab_04/) | Skin-lesion boundary detection using Canny | Skin lesion images | Complete |
 
 ---
 
