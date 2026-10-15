@@ -17,6 +17,7 @@ Supervisor: Dr. Jamal Hussain shah
 | [Lab 03](Lab_03/) | Edge detection, noise sensitivity, and classification | ISIC / HAM10000 | Complete |
 | [Lab 04](Lab_04/) | Skin-lesion boundary detection using Canny | Skin lesion images | Complete |
 | [Lab 05](Lab_05/) | HOG-based industrial defect detection and classification | NEU steel surface defects | In progress |
+| [Lab 06](Lab_06/) | Landmark recognition with SIFT features and geometric verification | Landmark photographs | Complete |
 
 ---
 
@@ -54,6 +55,12 @@ Uses HOG features with an RBF-SVM and random forest for binary normal/defective 
 
 Notebook, results, and paper: [`Lab_05/`](Lab_05/).
 
+## Lab 06: Landmark Recognition Using SIFT
+
+Compares query-image SIFT descriptors with a five-landmark reference database, rejects weak matches, and evaluates rotation, scale, brightness, viewpoint, and unknown-landmark cases. The supplied results recognize 5 of 25 known queries and reject both unknown queries, showing that the current system needs stronger coverage for four landmarks.
+
+Notebook, database, tests, saved outputs, and report: [`Lab_06/`](Lab_06/).
+
 ---
 
 ## Repository layout
@@ -84,12 +91,22 @@ Computer-Vision-/
 │   ├── REPORT.md
 │   ├── ANSWERS.md
 │   └── results/
-└── Lab_05/
-    ├── Lab05_HOG_Defect_Detection.ipynb
+├── Lab_05/
+│   ├── Lab05_HOG_Defect_Detection.ipynb
+│   ├── README.md
+│   ├── PAPER.md
+│   ├── requirements.txt
+│   └── results/
+└── Lab_06/
+    ├── Landmark_Recognition_SIFT.ipynb
     ├── README.md
-    ├── PAPER.md
-    ├── requirements.txt
-    └── results/
+    ├── REPORT.md
+    ├── ANSWERS.md
+    └── landmark_project/
+        ├── landmark_db/
+        ├── landmark_tests/
+        ├── sift_database.pkl
+        └── outputs/
 ```
 
 ---
