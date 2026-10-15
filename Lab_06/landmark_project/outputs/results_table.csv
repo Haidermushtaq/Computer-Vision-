@@ -1,0 +1,28 @@
+Expected,Condition,Best candidate,Keypoints,Reliable matches,RANSAC inliers,Decision,Predicted,Correct,Time (s)
+Eiffel Tower,Original,Eiffel Tower,1396,15,6,REJECTED,Unknown,False,2.19
+Eiffel Tower,Rotated 45 deg,Colosseum,1706,20,6,REJECTED,Unknown,False,2.88
+Eiffel Tower,Resized 50%,Colosseum,527,6,5,REJECTED,Unknown,False,0.79
+Eiffel Tower,Low brightness (0.4),Eiffel Tower,550,5,0,REJECTED,Unknown,False,0.96
+Eiffel Tower,Different viewpoint,Statue of Liberty,3000,21,5,REJECTED,Unknown,False,4.84
+Taj Mahal,Original,Taj Mahal,2209,109,73,RECOGNIZED,Taj Mahal,True,3.43
+Taj Mahal,Rotated 45 deg,Taj Mahal,2909,143,108,RECOGNIZED,Taj Mahal,True,4.76
+Taj Mahal,Resized 50%,Taj Mahal,619,44,24,RECOGNIZED,Taj Mahal,True,0.96
+Taj Mahal,Low brightness (0.4),Taj Mahal,809,36,15,RECOGNIZED,Taj Mahal,True,1.32
+Taj Mahal,Different viewpoint,Taj Mahal,1918,1265,1257,RECOGNIZED,Taj Mahal,True,3.11
+Great Wall of China,Original,Colosseum,3000,19,6,REJECTED,Unknown,False,4.72
+Great Wall of China,Rotated 45 deg,Statue of Liberty,3000,24,5,REJECTED,Unknown,False,4.9
+Great Wall of China,Resized 50%,Colosseum,1038,12,4,REJECTED,Unknown,False,1.55
+Great Wall of China,Low brightness (0.4),Eiffel Tower,855,7,5,REJECTED,Unknown,False,1.4
+Great Wall of China,Different viewpoint,Great Wall of China,3000,10,7,REJECTED,Unknown,False,4.57
+Statue of Liberty,Original,Colosseum,2476,23,7,REJECTED,Unknown,False,3.87
+Statue of Liberty,Rotated 45 deg,Colosseum,3000,31,6,REJECTED,Unknown,False,4.86
+Statue of Liberty,Resized 50%,Great Wall of China,757,10,5,REJECTED,Unknown,False,1.17
+Statue of Liberty,Low brightness (0.4),Colosseum,1262,16,6,REJECTED,Unknown,False,2.04
+Statue of Liberty,Different viewpoint,Statue of Liberty,628,19,5,REJECTED,Unknown,False,1.1
+Colosseum,Original,Colosseum,3000,17,6,REJECTED,Unknown,False,4.55
+Colosseum,Rotated 45 deg,Taj Mahal,3000,23,6,REJECTED,Unknown,False,4.79
+Colosseum,Resized 50%,Eiffel Tower,964,8,5,REJECTED,Unknown,False,1.48
+Colosseum,Low brightness (0.4),Eiffel Tower,609,5,4,REJECTED,Unknown,False,0.98
+Colosseum,Different viewpoint,Statue of Liberty,3000,20,6,REJECTED,Unknown,False,4.62
+Unknown,Not in database (pyramids_of_giza_01),Taj Mahal,3000,15,5,REJECTED,Unknown,True,4.86
+Unknown,Not in database (sydney_opera_house_01),Eiffel Tower,1730,13,5,REJECTED,Unknown,True,2.94
