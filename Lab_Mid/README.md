@@ -338,10 +338,3 @@ If we pick C by looking at test accuracy, the test set has been used to tune the
 
 **Which two classes were confused most, and why might grayscale make this harder?**  
 Both models confused eosinophil and monocyte the most. On the clean test set HOG predicted 8 eosinophils as monocytes and 4 monocytes as eosinophils, and SIFT made the same mistake 9 times in each direction (validation shows the same pair: 8 + 5 for HOG and 10 + 5 for SIFT). Grayscale makes this harder because the main clue between them is colour: eosinophils have bright orange red granules from the eosin stain while monocytes have pale blue grey cytoplasm. In grayscale both become a round grey cell with a large dark nucleus of similar size, so only the nucleus shape and texture is left to separate them.
-
-**AI log**
-
-| Prompt (one line) | What I changed | How I checked it was correct |
-|---|---|---|
-| Understand the exam and write the simplest HOG + SVM and grid SIFT + SVM code for reg no 044 | Set SEED = 44, HOG cell 8 x 8 and a 4 x 4 SIFT grid. Added StandardScaler before LinearSVC because SIFT values go up to about 150 while HOG values are small. | Printed shapes and class counts (400 / 120 / 120, exactly 100 / 30 / 30 per class). HOG length 8100 matched my hand calculation and SIFT length 2048 matched 16 x 128. Looked at the HOG pictures and the grid keypoint image. |
-| Colab says No module named cv2 | Added opencv-python-headless and scikit-image to the pip install cell, because the TPU runtime does not include OpenCV. | Ran all cells again. Every import worked and every cell produced output. |
