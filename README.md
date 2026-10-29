@@ -18,6 +18,7 @@ Supervisor: Dr. Jamal Hussain shah
 | [Lab 04](Lab_04/) | Skin-lesion boundary detection using Canny | Skin lesion images | Complete |
 | [Lab 05](Lab_05/) | HOG-based industrial defect detection and classification | NEU steel surface defects | In progress |
 | [Lab 06](Lab_06/) | Landmark recognition with SIFT features and geometric verification | Landmark photographs | Complete |
+| [Lab Mid](Lab_Mid/) | Lab mid exam: HOG + SVM vs grid SIFT + SVM, robustness to rotation and noise | BloodMNIST (4 classes) | Complete |
 
 ---
 
@@ -120,3 +121,14 @@ pip install -r requirements.txt
 ```
 
 Stack: PyTorch, torchvision, OpenCV, scikit-learn, scikit-image, XGBoost, thop, pandas, matplotlib, seaborn, joblib, kagglehub.
+
+## Lab Mid Exam: HOG vs SIFT on Blood-Cell Images
+
+Two classical pipelines (HOG + LinearSVC and fixed-grid SIFT + LinearSVC) on four BloodMNIST classes, tested on clean, rotated (20 degrees) and noisy (sigma 0.05) test images.
+
+| Model | Clean | Rotated | Noisy |
+|---|---|---|---|
+| HOG + SVM | 0.725 | 0.658 | 0.250 |
+| SIFT + SVM | 0.750 | 0.467 | 0.750 |
+
+Notebook, all outputs and answers PDF: [`Lab_Mid/`](Lab_Mid/).
