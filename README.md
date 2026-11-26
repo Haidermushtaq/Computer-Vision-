@@ -19,6 +19,8 @@ Supervisor: Dr. Jamal Hussain shah
 | [Lab 05](Lab_05/) | HOG-based industrial defect detection and classification | NEU steel surface defects | Complete |
 | [Lab 06](Lab_06/) | Landmark recognition with SIFT features and geometric verification | Landmark photographs | Complete |
 | [Lab Mid](Lab_Mid/) | Lab mid exam: HOG + SVM vs grid SIFT + SVM, robustness to rotation and noise | BloodMNIST (4 classes) | Complete |
+| [Lab 12](Lab_12/) | CNN feature visualization by hand, parameter audit of two CNNs, critical analysis | Synthetic facade image plus a real photo | Complete |
+| [Lab Assignment 03](Lab_Assignment_03/) | Regression algorithm comparison: linear, decision tree, random forest, KNN, MLP, XGBoost | Synthetic house-price data (1000 rows, 6 features) | Complete |
 
 ---
 
@@ -98,16 +100,26 @@ Computer-Vision-/
 │   ├── PAPER.md
 │   ├── requirements.txt
 │   └── results/
-└── Lab_06/
-    ├── Landmark_Recognition_SIFT.ipynb
+├── Lab_06/
+│   ├── Landmark_Recognition_SIFT.ipynb.bz2
+│   ├── README.md
+│   ├── REPORT.md
+│   ├── ANSWERS.md
+│   └── landmark_project/
+│       ├── landmark_db/
+│       ├── landmark_tests/
+│       ├── sift_database.pkl.bz2
+│       └── outputs/
+├── Lab_12/
+│   ├── CNN_Feature_Visualization_Parameter_Audit.ipynb
+│   └── README.md
+├── Lab_Assignment_03/
+│   └── Regression_Algorithms_Comparison.ipynb
+└── Lab_Mid/
+    ├── FA23_BAI_044_HaiderMushtaq_LabMid.ipynb
+    ├── FA23_BAI_044_HaiderMushtaq_LabMid_Answers.pdf
     ├── README.md
-    ├── REPORT.md
-    ├── ANSWERS.md
-    └── landmark_project/
-        ├── landmark_db/
-        ├── landmark_tests/
-        ├── sift_database.pkl
-        └── outputs/
+    └── figures/
 ```
 
 ---
